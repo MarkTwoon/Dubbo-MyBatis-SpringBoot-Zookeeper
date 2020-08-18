@@ -1,0 +1,47 @@
+框架环境介绍：                --------- 雄赳赳气昂昂，跨过鸭绿江。     @Java通用奇异
+Dubbo分布式框架是中国大陆阿里巴巴集团为了适应其公司业务平台软件开发，
+而在SpringBoot微服务基础之上推出的分布式扩展功能框架，
+可以视为是SpringBoot微服务框架的一种插件mod，其分布式应用效果略逊于正统的SpringCloud版本。
+
+--------------开发之前的必须插件
+首先  在用idea进行导入dubbo分布式框架项目与开发启动之前 需要我们去下载zookeeper-3.4.14独立的注册中心插件，
+并找到安装目录bin文件夹下的zkServer.cmd 与zkCli.cmd 双击启动黑窗口 保证线程成功启动不闪退。
+（参考图片  zookeeper注册中心启动示意图-0  与  zookeeper注册中心启动示意图-1）
+这是独立且封装的注册中心组件，路由过程不需要我们配置编写，
+各Maven Model模块统一向zookeeper进行http请求通信与启动微服务注册。
+
+zookeeper注册中心插件参考博客资料 
+https://blog.csdn.net/weixin_42315600/article/details/88652654
+
+当然本人也有百度云链接，该配置的手动配置都做了，根据配置文件  我是直接放在D盘下  D:\zookeeper-3.4.14，
+当然也建议加环境变量path指向bin 启动文件夹 。。如果分享链接失效，就去清华镜像下载重新配置 
+
+链接：https://pan.baidu.com/s/1viPn9TCN__EJJeYcCOFa0g 
+提取码：gcr5
+
+--------------项目开发过程
+再次强调，启动Dubbo分布式框架项目的各版块之前，一定要先启动运行 zookeeper注册中心插件的2个黑窗口线程，
+如果没有注册中心的存在，Dubbo框架各微服务模块则无法相互调用方法，类代码，无法传输json数据容器并报错。
+
+博客园参考系列资料（最靠谱）-1：    （博主就叫 王者之巅，确实也是一个狠人）
+https://www.cnblogs.com/gaopengfirst/p/9555240.html
+
+博客园参考系列资料-2：
+https://www.cnblogs.com/gaopengfirst/p/9562066.html
+
+博客园参考系列资料-3：
+https://www.cnblogs.com/gaopengfirst/p/9598655.html
+
+博客园参考系列资料-4：
+https://www.cnblogs.com/gaopengfirst/p/9677604.html
+
+目前就4章，前后端分离项目开发是够用了。
+filter过滤器我暂时没有实现，在customer消费者访问请求处理的控制层留了目录。
+大家可以下去 完善过滤器处理类插件。
+
+
+其他理论参考资料（不太行）：
+https://blog.csdn.net/weixin_42315600/article/details/88631796?%20utm_medium=distribute.pc_relevant.none-task-blog-%20BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-%20utm_source=distribute.pc_relevant.none-task-blog-%20BlogCommendFromMachineLearnPai2-1.edu_weight
+https://blog.csdn.net/weixin_33712881/article/details/91393885
+https://blog.csdn.net/qq_29077619/article/details/89675370?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight
+https://blog.csdn.net/Websphere_zxf/article/details/105304713?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight
